@@ -20,19 +20,21 @@ class _MassageScreenState extends State<MassageScreen> {
 
   initSocket() {
     socket = io(
-      'http://192.168.5.128:3003',
+      'http://10.0.2.2:3004',
       OptionBuilder()
           .setTransports(["websocket"])
           .disableAutoConnect()
           .enableForceNew()
           .build(),
     );
+    socket.connect();
     socket.onConnect((data) => print('onConnect:$data'));
     socket.onDisconnect((data) => print('onDisconnect:$data'));
     socket.onError((data) => print('onError:$data'));
-    socket.connect();
     socket.on('welcome', (data) => print('WELCOME:$data'));
     socket.on('massage', (data) => print(' MASSAGE:$data'));
+
+
   }
 
   @override
