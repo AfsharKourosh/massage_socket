@@ -33,8 +33,6 @@ class _MassageScreenState extends State<MassageScreen> {
     socket.onError((data) => print('onError:$data'));
     socket.on('welcome', (data) => print('WELCOME:$data'));
     socket.on('massage', (data) => print(' MASSAGE:$data'));
-
-
   }
 
   @override
