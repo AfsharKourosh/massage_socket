@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:socket_io_client/socket_io_client.dart';
+import 'package:socket_io_client/socket_io_client.dart' as Io;
 
 class MassageScreen extends StatefulWidget {
   const MassageScreen({super.key});
@@ -23,8 +24,10 @@ class _MassageScreenState extends State<MassageScreen> {
   }
 
   initSocket() {
-    socket = io(
-      'http://10.0.2.2:3004',
+    socket = Io.io(
+      // 'http://10.0.2.2:3004'
+      'http://192.168.5.128:3004'
+      ,
       OptionBuilder()
           .setTransports(["websocket"])
           .disableAutoConnect()
